@@ -480,7 +480,7 @@ class ObjectHydrator extends AbstractHydrator
                             $element = $this->getEntity($data, $dqlAlias);
                             $reflField->setValue($parentObject, $element);
                             $this->_uow->setOriginalEntityProperty($oid, $relationField, $element);
-                            $targetClass = $this->ce[$relation['targetEntity']];
+                            $targetClass = $this->getClassMetadata($relation['targetEntity']);
 
                             if ($relation['isOwningSide']) {
                                 //TODO: Just check hints['fetched'] here?
